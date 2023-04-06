@@ -24,7 +24,11 @@ else()
 endif()
 
 if(IS_DIRECTORY "${FatFs_SOURCE_PATH}")
-    set(FatFs_SYS_SOURCES "${FatFs_SOURCE_PATH}/option/unicode.c" "${FatFs_ROOT}/src/option/syscall.c")
+    set(FatFs_SYS_SOURCES "${FatFs_SOURCE_PATH}/option/unicode.c"
+                          "${FatFs_ROOT}/src/option/syscall.c"
+                          "${FatFs_SOURCE_PATH}/diskio.c"
+                          "${FatFs_SOURCE_PATH}/ff_gen_drv.c"
+                          "${FatFs_SOURCE_PATH}/ff.c")
 else()
     message(WARNING "${MSG_PREFIX} FatFs system include directory not found. Build might fail")
 endif()
